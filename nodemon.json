@@ -1,0 +1,7 @@
+{
+    "watch": ["src/main/java", "src/main/resource/webapp/WEB-INF/views"],
+    "ext": "java,jsp",
+    "ignore": ["target"],
+    "exec": "mvn package && java -jar target/steve.jar"
+  }
+  
