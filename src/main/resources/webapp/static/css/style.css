@@ -310,14 +310,14 @@ ul.navigation ul li a {
 	background: #253a47;    /* 000 */
 }
 .container {
-	width: 80%;
+	width: 90%;               /* 80px */
 	margin-right: auto;
 	margin-left: auto;
 	*zoom: 1;
 }
 .content {
 	position: relative;
-	width: 80%;
+	width: 90%;	              /* 80px */
 	border: 1px solid #CCC;
 	border-radius: 4px;
 	background: #fff;
@@ -370,16 +370,29 @@ a.tooltip:hover span {
   padding: 0.5em;
 }
 
-.tileWrapper { text-align: center; }
-.tileRow1 { width: 185px; }              /* 220px */
+.tileWrapper {
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* 10 ระยะห่างระหว่าง tiles */
+    width: 100%; /* 100 ไม่เกินเนื้อหา */
+}
+
+.tileRow1 {
+    width: 18%; /* 18 ปรับให้ 5 tiles รวมกันไม่เกิน 100% */
+    min-width: 100px; /* 150 ป้องกัน tiles เล็กเกินไป */
+    box-sizing: border-box;
+	display: block; /* ไม่ต้องใช้ flex หรือ grid ใน tile */
+}
 
 .tileWrapper a:link, .tileWrapper a:visited {
-	margin: 10px;
+	margin: 4px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	border: 3px solid #fff;
 	border-radius: 4px;
-	display: inline-block;
+	/* display: inline-block; */
 	box-shadow: 2px 2px 5px #969696;
 	font-size: 14px;
 	font-weight: bold;
@@ -391,6 +404,13 @@ a.tooltip:hover span {
 .tileWrapper a:hover, .tileWrapper a:active {
 	background-color: #eeeeee;
 }
+
+.heartbeat-tile .baseTable .baseCell {
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 0 2px;
+}
+
 span.baseTable { 
 	display: table;  
 	text-align:left; 

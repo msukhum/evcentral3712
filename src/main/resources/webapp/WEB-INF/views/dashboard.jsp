@@ -21,10 +21,8 @@
 <%@ include file="00-header.jsp" %>
 <style>
 	.tileContainer {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
-		gap: 1rem; /* Add spacing between tiles */
-	}
+		display: contents;
+	} 
 
 	.tileRow1 {
 		display: flex;
@@ -50,7 +48,7 @@
 			<span class="base formatNumber">${stats.numChargeBoxes}</span>
 		</a>
 		<a class="tileRow1" href="${ctxPath}/manager/dashboard/ocppJsonStatus">
-			Number of Connected<br>JSON Charge Points
+			Connected<br>Charge Points
 			<span class="baseTable">
 				<span class="baseRow">
 					<span class="baseCell">OCPP 1.6 :</span>
@@ -58,8 +56,8 @@
 				</span>
 			</span>
 		</a>
-		<a class="tileRow1" href="${ctxPath}/manager/chargepoints">
-			Received Heartbeats
+		<a class="tileRow1 heartbeat-tile" href="${ctxPath}/manager/chargepoints">
+			Heartbeats
 			<span class="baseTable">
 				<span class="baseRow">
 					<span class="baseCell">Today :</span>
@@ -76,11 +74,11 @@
 			</span>
 		</a>
 		<a class="tileRow1" href="${ctxPath}/manager/reservations">
-			Number of<br>Active Reservations
+			Active  <br>Reservations
 			<span class="base formatNumber">${stats.numReservations}</span>
 		</a>
 		<a class="tileRow1" href="${ctxPath}/manager/transactions">
-			Number of<br>Active Transactions
+			Active  <br>Transactions
 			<span class="base formatNumber">${stats.numTransactions}</span>
 		</a>
 	</div>
