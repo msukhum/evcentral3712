@@ -19,7 +19,7 @@ VOLUME ["/code"]
 COPY . /code
 
 # Wait for the db to startup(via dockerize), then build and run steve.jar
-CMD dockerize -wait tcp://mariadb:3306 -timeout 60s && \
+CMD dockerize -wait tcp://mysql:3306 -timeout 60s && \
     ./mvnw clean package -Pdocker -Djdk.tls.client.protocols="TLSv1,TLSv1.1,TLSv1.2" && \
-    java -jar target/evcentral3712.jar
+    java -jar target/steve.jar
 
