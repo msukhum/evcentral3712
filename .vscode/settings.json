@@ -2,23 +2,23 @@
     "java.dependency.packagePresentation": "flat",
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "interactive",
-    "netbeans.jdkhome": "c:\\Program Files\\Java\\jdk-21",
-    "netbeans.project.jdkhome": "c:\\Program Files\\Java\\jdk-21",
-    "java.jdt.ls.java.home": "c:\\Program Files\\Java\\jdk-21",
+    "netbeans.jdkhome": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
+    "netbeans.project.jdkhome": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-21",
-            "path": "c:\\Program Files\\Java\\jdk-21"
+            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot"
         }
     ],
     "terminal.integrated.env.windows": {
-        "JAVA_HOME": "c:\\Program Files\\Java\\jdk-21",
-        "PATH": "c:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
+        "PATH": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot\\bin;${env:PATH}"
     },
     "maven.terminal.customEnv": [
         {
             "environmentVariable": "JAVA_HOME",
-            "value": "c:\\Program Files\\Java\\jdk-21"
+            "value": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot"
         }
     ]
 }
