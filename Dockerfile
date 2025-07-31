@@ -9,11 +9,15 @@ LABEL app="evcentral3712"
 ENV DOCKERIZE_VERSION v0.19.0
 RUN curl -sfL https://github.com/powerman/dockerize/releases/download/"$DOCKERIZE_VERSION"/dockerize-`uname -s`-`uname -m` | install /dev/stdin /usr/local/bin/dockerize
 
+# Create logs directory and set permissions
+RUN mkdir -p /logs && chmod 755 /logs
+
 EXPOSE 8180
 EXPOSE 8443
 WORKDIR /code
 
 VOLUME ["/code"]
+VOLUME ["/logs"]
 
 # Copy the application's code
 COPY . /code

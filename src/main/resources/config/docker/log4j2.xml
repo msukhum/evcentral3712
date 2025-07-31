@@ -9,6 +9,20 @@
         <Console name="CONSOLE" target="SYSTEM_OUT">
             <PatternLayout pattern="${logPattern}"/>
         </Console>
+        
+        <!-- File appender for Docker environment -->
+        <RollingRandomAccessFile name="FILE"
+                                 fileName="/logs/steve.log"
+                                 filePattern="/logs/steve-%d{yyyy-MM-dd}-%i.log.gz"
+                                 immediateFlush="false"
+                                 append="true">
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
     </Appenders>
 
     <Loggers>
@@ -29,6 +43,7 @@
 
         <AsyncRoot level="INFO">
             <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="FILE"/>
         </AsyncRoot>
     </Loggers>
 </Configuration>
