@@ -155,6 +155,12 @@ public class ConnectionMonitoringService {
             
             log.warn("DISCONNECTION: {} disconnected at {}", chargeBoxId, stats.lastDisconnected);
         }
+        
+        // Update current status based on actual connection state
+        List<OcppJsonStatus> currentConnections = chargePointHelperService.getOcppJsonStatus();
+        boolean actuallyConnected = currentConnections.stream()
+            .anyMatch(conn -> chargeBoxId.equals(conn.getChargeBoxId()));
+        stats.currentlyConnected = actuallyConnected;
     }
 
     /**

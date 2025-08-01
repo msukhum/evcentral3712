@@ -133,9 +133,9 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
         // the connection because of a idle timeout, we ping-pong at fixed intervals.
         ScheduledFuture pingSchedule = service.scheduleAtFixedRate(
                 new PingTask(chargeBoxId, session),
-                WebSocketConfiguration.PING_INTERVAL,
-                WebSocketConfiguration.PING_INTERVAL,
-                TimeUnit.MINUTES);
+                WebSocketConfiguration.PING_INTERVAL_SECONDS,
+                WebSocketConfiguration.PING_INTERVAL_SECONDS,
+                TimeUnit.SECONDS);
 
         futureResponseContextStore.addSession(session);
 

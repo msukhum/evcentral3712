@@ -33,7 +33,6 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sevket Goekay <sevketgokay@gmail.com>
@@ -51,9 +50,17 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
     @Autowired private Ocpp16WebSocketEndpoint ocpp16WebSocketEndpoint;
 
     public static final String PATH_INFIX = "/ocpp/";
-    public static final long PING_INTERVAL = TimeUnit.MINUTES.toMinutes(15);
-    public static final Duration IDLE_TIMEOUT = Duration.ofHours(2);
+    
+    // WebSocket ping interval - 50 seconds for better connection stability
+    public static final long PING_INTERVAL_SECONDS = 50; 
+    
+    // Idle timeout - 60 minutes before closing inactive connections
+    public static final Duration IDLE_TIMEOUT = Duration.ofMinutes(60);
+    
+    // Message and connection settings
     public static final int MAX_MSG_SIZE = 8_388_608; // 8 MB for max message size
+    public static final int SEND_TIME_LIMIT = 60000; // 60 seconds for send timeout
+    public static final int CONNECT_TIMEOUT = 30000; // 30 seconds for connection timeout
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {

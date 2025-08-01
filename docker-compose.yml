@@ -12,4 +12,12 @@ services:
       - "8443:8443"
     # Use host networking to connect to MySQL service on the same server
     network_mode: "host"
+    environment:
+      # JVM settings for better network handling
+      - JAVA_OPTS=-Djava.net.preferIPv4Stack=true -Dnetworkaddress.cache.ttl=30 -Dnetworkaddress.cache.negative.ttl=10
+    # Add ulimits for better connection handling
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
     
