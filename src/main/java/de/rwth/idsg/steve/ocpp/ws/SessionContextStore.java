@@ -65,8 +65,9 @@ public class SessionContextStore {
             Deque<SessionContext> endpointDeque = lookupTable.computeIfAbsent(chargeBoxId, str -> new ArrayDeque<>());
             endpointDeque.addLast(context); // Adding at the end
 
-            log.debug("A new SessionContext is stored for chargeBoxId '{}'. Store size: {}",
-                    chargeBoxId, endpointDeque.size());
+            // Disabled debug logging for session context to reduce log noise
+            // log.debug("A new SessionContext is stored for chargeBoxId '{}'. Store size: {}",
+            //         chargeBoxId, endpointDeque.size());
         } finally {
             l.unlock();
         }
@@ -78,7 +79,8 @@ public class SessionContextStore {
         try {
             Deque<SessionContext> endpointDeque = lookupTable.get(chargeBoxId);
             if (endpointDeque == null) {
-                log.debug("No session context to remove for chargeBoxId '{}'", chargeBoxId);
+                // Disabled debug logging for session context to reduce log noise
+                // log.debug("No session context to remove for chargeBoxId '{}'", chargeBoxId);
                 return;
             }
 
@@ -99,8 +101,9 @@ public class SessionContextStore {
                 toRemove.getPingSchedule().cancel(true);
                 // 2. Delete from collection
                 if (endpointDeque.remove(toRemove)) {
-                    log.debug("A SessionContext is removed for chargeBoxId '{}'. Store size: {}",
-                            chargeBoxId, endpointDeque.size());
+                    // Disabled debug logging for session context to reduce log noise
+                    // log.debug("A SessionContext is removed for chargeBoxId '{}'. Store size: {}",
+                    //         chargeBoxId, endpointDeque.size());
                 }
                 // 3. Delete empty collection from lookup table in order to correctly calculate
                 // the number of connected chargeboxes with getNumberOfChargeBoxes()
