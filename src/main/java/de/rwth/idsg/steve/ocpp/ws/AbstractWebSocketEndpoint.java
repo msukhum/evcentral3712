@@ -131,10 +131,14 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
 
         // Just to keep the connection alive, such that the servers do not close
         // the connection because of a idle timeout, we ping-pong at fixed intervals.
-        ScheduledFuture pingSchedule = service.scheduleAtFixedRate(
+        // Implement staggered ping schedule to spread load across multiple charge boxes
+        long baseInterval = WebSocketConfiguration.PING_INTERVAL_SECONDS;
+        long staggerDelay = (long) (Math.random() * (baseInterval / 2)); // Random delay 0 to 25 seconds
+        
+        ScheduledFuture<?> pingSchedule = service.scheduleAtFixedRate(
                 new PingTask(chargeBoxId, session),
-                WebSocketConfiguration.PING_INTERVAL_SECONDS,
-                WebSocketConfiguration.PING_INTERVAL_SECONDS,
+                staggerDelay, // Initial delay is staggered
+                baseInterval, // Fixed interval after that
                 TimeUnit.SECONDS);
 
         futureResponseContextStore.addSession(session);

@@ -51,8 +51,8 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
 
     public static final String PATH_INFIX = "/ocpp/";
     
-    // WebSocket ping interval - 120 seconds for better scalability with many charge boxes
-    public static final long PING_INTERVAL_SECONDS = 120; 
+    // WebSocket ping interval - 50 seconds with staggered scheduling for scalability
+    public static final long PING_INTERVAL_SECONDS = 50; 
     
     // Idle timeout - 60 minutes before closing inactive connections
     public static final Duration IDLE_TIMEOUT = Duration.ofMinutes(60);

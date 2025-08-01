@@ -50,13 +50,11 @@ public final class WebSocketLogger {
     }
 
     public static void sendingPing(String chargeBoxId, WebSocketSession session) {
-        // Disabled debug logging for ping messages to reduce log noise
-        // log.debug("[chargeBoxId={}, sessionId={}] Sending ping message", chargeBoxId, session.getId());
+        log.debug("[chargeBoxId={}, sessionId={}] Sending ping message", chargeBoxId, session.getId());
     }
 
     public static void receivedPong(String chargeBoxId, WebSocketSession session) {
-        // Disabled debug logging for pong messages to reduce log noise  
-        // log.debug("[chargeBoxId={}, sessionId={}] Received pong message", chargeBoxId, session.getId());
+        log.debug("[chargeBoxId={}, sessionId={}] Received pong message", chargeBoxId, session.getId());
     }
 
     public static void receivedText(String chargeBoxId, WebSocketSession session, String msg) {
