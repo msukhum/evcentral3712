@@ -53,6 +53,7 @@ public enum SteveConfiguration {
 
     private final String contextPath;
     private final String steveVersion;
+    private final String evcentralVersion;
     private final String gitDescribe;
     private final ApplicationProfile profile;
     private final Ocpp ocpp;
@@ -66,6 +67,7 @@ public enum SteveConfiguration {
 
         contextPath = sanitizeContextPath(p.getOptionalString("context.path"));
         steveVersion = p.getString("steve.version");
+        evcentralVersion = p.getOptionalString("evcentral.version");
         gitDescribe = useFallbackIfNotSet(p.getOptionalString("git.describe"), null);
         profile = ApplicationProfile.fromName(p.getString("profile"));
 

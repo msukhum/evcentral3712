@@ -68,6 +68,7 @@ public class AboutSettingsController {
     @RequestMapping(value = ABOUT_PATH, method = RequestMethod.GET)
     public String getAbout(Model model) {
         model.addAttribute("version", CONFIG.getSteveVersion());
+        model.addAttribute("evcentralVersion", CONFIG.getEvcentralVersion());
         model.addAttribute("db", genericRepository.getDBVersion());
         model.addAttribute("logFile", logController.getLogFilePath());
         model.addAttribute("systemTime", DateTime.now());

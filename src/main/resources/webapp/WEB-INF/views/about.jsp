@@ -28,8 +28,9 @@
         </div>
     </c:if>
 <table class="userInputFullPage">
-	<tr><td>Version:</td><td>${version}</td></tr>
-	<tr><td>Database Version:</td><td>${db.version}</td></tr>
+	<tr><td>Version:</td><td>${evcentralVersion}</td></tr>
+	<tr><td>SteVe Version:</td><td>${version}</td></tr>
+	<tr><td>MySQL Database Version:</td><td>${db.version}</td></tr>
 	<tr><td>Last Database Update:</td><td>${db.updateTimestamp}</td></tr>
     <tr><td>Log File:</td><td>${logFile}</td></tr>
 	<tr><td>GitHub Page:</td><td><a href="https://github.com/steve-community/steve">https://github.com/steve-community/steve</a></td></tr>

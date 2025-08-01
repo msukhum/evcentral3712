@@ -18,7 +18,9 @@
 
         <AsyncLogger name="org.apache.cxf" level="INFO"/>
         <AsyncLogger name="org.eclipse.jetty" level="INFO"/>
-        <AsyncLogger name="com.zaxxer.hikari" level="INFO"/>
+        <AsyncLogger name="com.zaxxer.hikari" level="WARN"/>
+        <AsyncLogger name="com.zaxxer.hikari.pool.HikariPool" level="ERROR"/>
+        <AsyncLogger name="com.zaxxer.hikari.pool.PoolBase" level="ERROR"/>
         <AsyncLogger name="org.springframework" level="INFO"/>
         <AsyncLogger name="org.springframework.security" level="INFO"/>
         <AsyncLogger name="org.springframework.web.servlet" level="INFO"/>
@@ -26,6 +28,12 @@
         <AsyncLogger name="org.apache.jasper" level="WARN"/>
         <AsyncLogger name="org.apache.tomcat.util" level="WARN"/>
         <AsyncLogger name="jndi" level="WARN"/>
+
+        <!-- Enhanced WebSocket Connection Monitoring -->
+        <AsyncLogger name="de.rwth.idsg.steve.ocpp.ws" level="DEBUG"/>
+        <AsyncLogger name="de.rwth.idsg.steve.service.ChargePointHelperService" level="DEBUG"/>
+        <AsyncLogger name="de.rwth.idsg.steve.ocpp.ws.AbstractWebSocketEndpoint" level="DEBUG"/>
+        <AsyncLogger name="de.rwth.idsg.steve.ocpp.ws.pipeline" level="DEBUG"/>
 
         <AsyncRoot level="DEBUG">
             <AppenderRef ref="CONSOLE"/>

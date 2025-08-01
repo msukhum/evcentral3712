@@ -98,7 +98,19 @@ public class BeanConfiguration implements WebMvcConfigurer {
         hc.setUsername(dbConfig.getUserName());
         hc.setPassword(dbConfig.getPassword());
 
-        // set non-standard params
+        // === HikariCP Connection Pool Configuration ===
+        // Pool sizing - Configure based on your application needs
+        hc.setMaximumPoolSize(30);           // Maximum number of connections in pool
+        hc.setMinimumIdle(5);                // Minimum idle connections
+        
+        // Connection timeouts (milliseconds)
+        hc.setConnectionTimeout(30000);      // 30 seconds - how long to wait for connection
+        hc.setIdleTimeout(600000);           // 10 minutes - how long idle connections stay
+        hc.setMaxLifetime(1800000);          // 30 minutes - maximum connection lifetime
+        hc.setValidationTimeout(5000);       // 5 seconds - connection validation timeout
+        hc.setLeakDetectionThreshold(60000); // 60 seconds - connection leak detection
+        
+        // MySQL-specific optimizations
         hc.addDataSourceProperty(PropertyKey.cachePrepStmts.getKeyName(), true);
         hc.addDataSourceProperty(PropertyKey.useServerPrepStmts.getKeyName(), true);
         hc.addDataSourceProperty(PropertyKey.prepStmtCacheSize.getKeyName(), 250);
@@ -106,9 +118,12 @@ public class BeanConfiguration implements WebMvcConfigurer {
         hc.addDataSourceProperty(PropertyKey.characterEncoding.getKeyName(), "utf8");
         hc.addDataSourceProperty(PropertyKey.connectionTimeZone.getKeyName(), CONFIG.getTimeZoneId());
         hc.addDataSourceProperty(PropertyKey.useSSL.getKeyName(), true);
-
-        // https://github.com/steve-community/steve/issues/736
-        hc.setMaxLifetime(580_000);
+        
+        // Connection validation and timeouts at MySQL driver level
+        hc.addDataSourceProperty(PropertyKey.connectTimeout.getKeyName(), 30000);
+        hc.addDataSourceProperty(PropertyKey.socketTimeout.getKeyName(), 60000);
+        hc.addDataSourceProperty(PropertyKey.autoReconnect.getKeyName(), true);
+        hc.addDataSourceProperty(PropertyKey.allowPublicKeyRetrieval.getKeyName(), true);
 
         dataSource = new HikariDataSource(hc);
     }

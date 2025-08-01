@@ -2,23 +2,24 @@
     "java.dependency.packagePresentation": "flat",
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "interactive",
-    "netbeans.jdkhome": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
-    "netbeans.project.jdkhome": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
-    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
+    "netbeans.jdkhome": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64",
+    "netbeans.project.jdkhome": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64",
+    "java.jdt.ls.java.home": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-21",
-            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot"
+            "path": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64",
+            "default": true
         }
     ],
     "terminal.integrated.env.windows": {
-        "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot",
-        "PATH": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot\\bin;${env:PATH}"
+        "JAVA_HOME": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64",
+        "PATH": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64\\bin;${env:PATH}"
     },
     "maven.terminal.customEnv": [
         {
             "environmentVariable": "JAVA_HOME",
-            "value": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.8.9-hotspot"
+            "value": "C:\\Users\\Sukhum\\.vscode\\extensions\\redhat.java-1.43.1-win32-x64\\jre\\21.0.7-win32-x86_64"
         }
     ]
 }

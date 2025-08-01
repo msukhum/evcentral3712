@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run SteVe Application",
+            "request": "launch",
+            "mainClass": "de.rwth.idsg.steve.Application",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=dev"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Run SteVe Simple",
+            "request": "launch",
+            "mainClass": "de.rwth.idsg.steve.Application",
+            "console": "integratedTerminal"
+        }
+    ]
+}
